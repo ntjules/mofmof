@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
-
+<h2>Property Detail</h2>
 <p>
-  <strong>Protype:</strong>
-  <%= @property.protype %>
+  <strong>Property:</strong>
+  <%= @property.property %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @property.description %>
+  <strong>Rent:</strong>
+  <%= @property.rent %>
 </p>
 
 <p>
@@ -16,9 +16,35 @@
 </p>
 
 <p>
-  <strong>Remark:</strong>
+  <strong>Building age:</strong>
+  <%= @property.age %>
+</p>
+
+
+
+<p>
+  <strong>Remarks:</strong>
   <%= @property.remark %>
 </p>
+<hr>
+<% @property.stations.each_with_index do |property, i| %>
+    <h2>Nearest station<%= i + 1 %></h2>
+    <p>
+      <strong>Name of railway:</strong>
+      <%= property.railwayname  %>
+    </p>
+
+    <p>
+      <strong>Station name:</strong>
+      <%= property.name %>
+    </p>
+
+    <p>
+      <strong>How many minutes walk:</strong>
+      <%= property.time %> min/mins
+    </p>
+    
+<% end %>
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>

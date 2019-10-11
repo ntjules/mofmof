@@ -1,0 +1,60 @@
+<%= form_for @property do |form| %>
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
+<% end %> 
+
+<%= form_for @property do |fprop| %>
+  <div class="field">
+    <%= fprop.label :property %>
+    <%= fprop.text_field :property %>
+  </div>
+
+  <div class="field">
+    <%= fprop.label :rent %>
+    <%= fprop.text_field :rent %>RWF
+  </div>
+
+  <div class="field">
+    <%= fprop.label :"Building age" %>
+    <%= fprop.text_field :age %>year/years old
+  </div>
+
+  <div class="field">
+    <%= fprop.label :address %>
+    <%= fprop.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= fprop.label :remark %>
+    <%= fprop.text_area :remark %>
+  </div>
+<hr>
+  <%= fprop.fields_for :stations do |fsts| %>
+      <h2>Name of railway line<%= fsts.index + 1 %></h2>
+      <div class="field">
+        <%= fsts.label :"Name of railway line" %>
+        <%= fsts.text_field :railwayname %>
+      </div>
+      <div class="field">
+        <%= fsts.label :"station name" %>
+        <%= fsts.text_field :name %>
+      </div>
+      <div class="field">
+        <%= fsts.label :"How many minutes walk" %>
+        <%= fsts.text_field :time %>min/mins
+      </div>
+    <% end %>
+
+  <div class="actions">
+    <%= fprop.submit %>
+  </div>
+<% end %>
