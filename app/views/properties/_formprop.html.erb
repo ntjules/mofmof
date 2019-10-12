@@ -20,12 +20,12 @@
 
   <div class="field">
     <%= fprop.label :rent %>
-    <%= fprop.text_field :rent %>RWF
+    <%= fprop.number_field :rent %>RWF
   </div>
 
   <div class="field">
     <%= fprop.label :"Building age" %>
-    <%= fprop.text_field :age %>year/years old
+    <%= fprop.number_field :age %>year/years old
   </div>
 
   <div class="field">
@@ -50,7 +50,7 @@
       </div>
       <div class="field">
         <%= fsts.label :"How many minutes walk" %>
-        <%= fsts.text_field :time %>min/mins
+        <%= fsts.number_field :time %>min/mins
       </div>
     <% end %>
 
